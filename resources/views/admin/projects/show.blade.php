@@ -6,27 +6,26 @@
 
 @section("content")
 
-    <h1>Singolo project: {{ $project->title}}</h1>
+<div class="container">
+    <h2>Singolo Progetto: {{ $project->title }}</h2>
 
-    <img class="img-fluid" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
+    <div class="mt-4">
+         <h3>{{ $project->content }}</h3>
+         <img class="img-fluid" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
 
-    <p class="mt-3">
-        {{ $project->content}}
-    </p>
+         @if( $project->type )
+            <div> Type: {{$project->type->name}}</div>
+         @endif
 
-    <h2 class="mt-3">Types</h2>
-    @if( $project->types )
-        <div>Name: {{ $project->type->name }}</div>
-        <div>Slug: {{ $project->type->slug }}</div>
-    @endif
+         @if( $project->technologies )
+            @foreach ( $project->technologies as $element )
+            <div> Tecnology: {{ $element->name }} </div>
+            @endforeach
+         @endif
 
+    </div>
 
-    <h2 class="mt-3">Technologies</h2>
-    @if( $project->technologies )
-    	@foreach ( $project->technologies as $elem )
-    		<div>Technology Name: {{ $elem->name }} </div>
-    	@endforeach
-    @endif
+ </div>
 
 
 
