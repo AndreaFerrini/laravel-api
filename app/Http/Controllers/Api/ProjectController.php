@@ -39,7 +39,7 @@ class ProjectController extends Controller
 
                 'success' => false,
                 'error' => "Non sono presenti projects"
-            ]);
+            ])->setStatusCode(404);
         }
     }
 }
