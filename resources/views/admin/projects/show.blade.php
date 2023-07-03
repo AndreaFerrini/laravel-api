@@ -11,15 +11,15 @@
 
     <div class="mt-4">
          <h3>{{ $project->content }}</h3>
-         <img class="img-fluid" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
+         <img class="img-fluid text-center mt-3 mb-3" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
 
          @if( $project->type )
-            <div> Type: {{$project->type->name}}</div>
+            <div class="text-center mt-3 mb-3"> Type: {{$project->type->name}}</div>
          @endif
 
          @if( $project->technologies )
             @foreach ( $project->technologies as $element )
-            <div> Tecnology: {{ $element->name }} </div>
+            <div class="text-center mt-3 mb-1"> Tecnology: {{ $element->name }} </div>
             @endforeach
          @endif
 

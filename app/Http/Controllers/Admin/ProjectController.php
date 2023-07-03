@@ -61,7 +61,7 @@ class ProjectController extends Controller
         //     ]
         //     );
 
-        $form_data = $request->validated();
+       
         $form_data = $request->all();
 
 
@@ -72,7 +72,7 @@ class ProjectController extends Controller
 
         if( $request->hasFile("cover_image") ){
 
-            $path = Storage::disk("public")->put( "project_image", $request->cover_image );
+            $path = Storage::disk("public")->put( "project_images", $request->cover_image );
             $form_data["cover_image"] = $path;
         }
 
