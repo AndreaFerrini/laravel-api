@@ -13,7 +13,7 @@ class ProjectController extends Controller
 
         // $projects = Project::with("types", "technologies")->get();
 
-        $projects = Project::with("types", "technologies")->paginate(3);
+        $projects = Project::with("type", "technologies")->paginate(3);
 
         return response()->json(
             [
@@ -25,7 +25,7 @@ class ProjectController extends Controller
 
     public function show($slug)
     {
-        $project = Project::with( "types", "technologies" )->where( "slug", $slug )->first();
+        $project = Project::with( "type", "technologies" )->where( "slug", $slug )->first();
 
         if( $project ){
             return response()->json([
